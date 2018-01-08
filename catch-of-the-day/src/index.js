@@ -15,16 +15,12 @@ const Root = () => {
   return (
     <BrowserRouter>
       <div>
-        <Match exactly pattern="/" component={StorePicker} />
-        <Match exactly pattern="/store/:storeId" component={App} />
-        <Miss component={NotFound} />
+        <Match exactly pattern="/" component={StorePicker} /> {/* if on homepage show StorePicker component */}
+        <Match exactly pattern="/store/:storeId" component={App} /> {/* if on store page show App component */}
+        <Miss component={NotFound} /> {/* if url wrong show NotFound component*/}
       </div>
     </BrowserRouter>
   )
 }
 
 render(<Root/>, document.querySelector('#main')) // render StorePicker component in #main
-
-// if on store page show App component
-// if on homepage show StorePicker componet
-// if url wrong show url not found component
